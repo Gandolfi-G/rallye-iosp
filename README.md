@@ -3,7 +3,7 @@
 Projet web **100% statique** (HTML/CSS/JavaScript vanilla) pour un jeu de piste pédagogique mobile-first à Plainpalais (Genève), destiné à des élèves de 11CO LS.
 
 ## 1) Objectif pédagogique
-Le jeu transforme les règles d'orientation en défis terrain courts :
+Le jeu transforme les règles d'orientation en défis courts :
 - tri des filières (Collège, ECG, CFP Commerce, SeFoP),
 - logique choix A / choix B / préférentiel,
 - cas spécial SeFoP en choix A,
@@ -14,7 +14,6 @@ Le jeu transforme les règles d'orientation en défis terrain courts :
 ## 2) Sources de vérité utilisées
 - `docs/brief-pedagogique.md`
 - `docs/regles-orientation.json`
-- `docs/implantation-terrain.md`
 
 Les fichiers originaux sont aussi conservés à la racine du dépôt.
 
@@ -37,7 +36,6 @@ Les fichiers originaux sont aussi conservés à la racine du dépôt.
 ├── docs
 │   ├── README-enseignant.md
 │   ├── brief-pedagogique.md
-│   ├── implantation-terrain.md
 │   └── regles-orientation.json
 ├── brief-pedagogique.md
 └── regles-orientation.json
@@ -66,10 +64,10 @@ Tout est centralisé dans `assets/js/game-data.js`.
 Chaque étape suit cette structure :
 - `id`
 - `title`
-- `location`
 - `narration`
-- `terrainInstruction`
-- `onSiteClue`
+- `greekLetter`
+- `greekPdfCode`
+- `greekGlyph`
 - `puzzleQuestion`
 - `answer`
 - `acceptedVariants`
@@ -77,9 +75,8 @@ Chaque étape suit cette structure :
 - `pedagogicalNote`
 - `whatsappCode`
 - `nextStep`
-- `fallbackNote`
 
-Les réponses incluent désormais un code de balise terrain (2 caractères), ce qui impose un passage sur place.
+Les réponses s'appuient désormais sur 6 PDFs grecs (recto symbole, verso code).
 
 ## 7) Changer les codes WhatsApp
 Éditer uniquement `whatsappCode` dans `assets/js/game-data.js`.
@@ -98,8 +95,19 @@ Contenu local :
 - utilisation des indices,
 - horodatage et codes de validation.
 
-## 9) Robustesse terrain
-Les étapes sont conçues autour de repères stables (zone ouverte, bordure arborée, marquages, panneau, point central) et contiennent un `fallbackNote` si le repère principal n'est pas praticable.
+## 9) PDFs à imprimer
+Les 6 fichiers PDF recto-verso sont générés dans `docs/pdfs-plainpalais` :
+- `plainpalais-alpha.pdf`
+- `plainpalais-beta.pdf`
+- `plainpalais-gamma.pdf`
+- `plainpalais-delta.pdf`
+- `plainpalais-epsilon.pdf`
+- `plainpalais-omega.pdf`
+
+Régénération:
+```bash
+python3 scripts/generate_plainpalais_pdf_cards.py
+```
 
 ## 10) Améliorations possibles
 - ajouter un mode "deux niveaux d'indices" (indice léger puis indice fort),
