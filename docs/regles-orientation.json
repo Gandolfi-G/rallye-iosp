@@ -1,0 +1,174 @@
+{
+  "meta": {
+    "title": "Règles d’orientation nettoyées pour jeu de piste Codex",
+    "source": "LS_preparation_a_la_saisie_des_filieres_et_options.pdf",
+    "section": "LS",
+    "note": "Version synthétique et exploitable pour un site statique et des énigmes ludiques."
+  },
+  "periode": {
+    "debut": "2026-03-25",
+    "fin": "2026-04-01",
+    "label": "Formulaire à soumettre du 25 mars au 1er avril 2026"
+  },
+  "public": {
+    "niveau": "11CO",
+    "section": "LS"
+  },
+  "structures": [
+    "Collège de Genève",
+    "École de culture générale",
+    "CFP Commerce",
+    "SeFoP"
+  ],
+  "regles_generales": [
+    "L’inscription se fait pour une filière et non pour un établissement spécifique.",
+    "Les choix sont définitifs après la fermeture du formulaire.",
+    "Le choix A dépend de l’admissibilité actuelle de l’élève.",
+    "Le choix B dépend uniquement de la section actuelle de l’élève.",
+    "Le choix préférentiel départage A et B si l’élève est admissible aux deux en fin d’année.",
+    "Si l’élève n’est admissible qu’à un seul choix, l’inscription est confirmée dans ce choix.",
+    "Si SeFoP est choisi en choix A, il n’y a pas de choix B.",
+    "Si une demande d’inscription en CFP hors Commerce est retenue, les choix A et B ne sont plus pris en considération."
+  ],
+  "bilingue": {
+    "regles": [
+      "Si l’élève veut une filière bilingue et y est admissible au moment des inscriptions, il faut choisir la filière bilingue en choix A et la maturité gymnasiale en choix B.",
+      "Le choix bilingue est définitif s’il est admissible en T2 et en fin d’année scolaire ; il devient automatiquement préférentiel.",
+      "Pour bilingue allemand, l’allemand doit être choisi au profil (DF ou OS).",
+      "Pour bilingue anglais, l’anglais doit être choisi au profil (DF ou OS)."
+    ],
+    "seuils_indiques": {
+      "francais_plus_allemand_min": 4.8,
+      "francais_plus_anglais_min": 4.8
+    }
+  },
+  "conditions": {
+    "entree_1ere_CFC_CFP_Commerce_ou_ECG": [
+      "français + mathématiques + allemand/anglais >= 9.0"
+    ],
+    "entree_2e_ECG": [
+      "moyenne générale + français + mathématiques >= 5.0",
+      "arts et design : moyenne en arts visuels >= 4.0",
+      "musique : moyenne en musique (10e) >= 4.0",
+      "théâtre : pratique théâtrale d’au moins 1 an",
+      "communication-information : moyenne en allemand et anglais >= 4.0",
+      "santé : moyenne en physique >= 4.0",
+      "travail social : moyenne en géographie et histoire >= 4.0",
+      "pédagogie : français + mathématiques + anglais + allemand >= 20.0"
+    ]
+  },
+  "codes_filieres": {
+    "college": {
+      "Maturité gymnasiale": "0287",
+      "Maturité bilingue AL/enseignement": "2095",
+      "Maturité bilingue AL/séjour": "2523",
+      "Maturité bilingue AN/enseignement": "2096",
+      "Maturité bilingue AN/séjour": "2524"
+    },
+    "ecg": {
+      "Certificat de culture générale": "2900",
+      "Culture générale/Arts et design": "2901",
+      "Culture générale/Arts-musique": "2902",
+      "Culture générale/Arts-théâtre": "2903",
+      "Culture générale/Communication-information": "2904",
+      "Culture générale/Santé": "2905",
+      "Culture générale/Pédagogie": "2906",
+      "Culture générale/Travail social": "2907"
+    },
+    "cfp_commerce": {
+      "CFC commerce + Maturité professionnelle bilingue AN": "2212",
+      "CFC commerce + Maturité professionnelle": "2211",
+      "CFC commerce": "2202"
+    },
+    "sefop": {
+      "Formation préqualifiante": "2152"
+    }
+  },
+  "langues_par_filiere": {
+    "SeFoP": [
+      "Aucun choix à effectuer."
+    ],
+    "CFP Commerce": {
+      "AFP Employée ou employé de commerce": [
+        "Pas de choix à effectuer",
+        "Anglais obligatoire"
+      ],
+      "CFC Commerce": [
+        "Anglais obligatoire",
+        "Choisir une langue nationale : Allemand ou Italien"
+      ],
+      "CFC Maturité professionnelle": [
+        "Anglais obligatoire",
+        "Choisir une langue nationale : Allemand ou Italien"
+      ]
+    },
+    "ECG": {
+      "Certificat ECG 1re": [
+        "Projet école primaire : anglais et allemand obligatoires",
+        "Projet tourisme : anglais et allemand obligatoires",
+        "Projet informatique de gestion : anglais obligatoire",
+        "Autre projet : choisir deux langues parmi Anglais, Allemand, Italien"
+      ],
+      "Certificat ECG 2e": [
+        "L’ECG contactera l’élève d’ici mi-mai pour compléter l’inscription (langues + OSP)."
+      ]
+    }
+  },
+  "college": {
+    "os_possibles": [
+      "Allemand",
+      "Anglais",
+      "Arts visuels",
+      "Biologie et chimie",
+      "Économie et droit",
+      "Espagnol débutant",
+      "Grec débutant",
+      "Italien débutant",
+      "Latin",
+      "Musique",
+      "Physique et application des mathématiques"
+    ],
+    "df": {
+      "langue_2": [
+        "Allemand",
+        "Italien"
+      ],
+      "langue_3": [
+        "Allemand",
+        "Anglais",
+        "Italien",
+        "Latin"
+      ],
+      "mathematiques": [
+        "Niveau normal",
+        "Niveau avancé"
+      ],
+      "arts": [
+        "Arts visuels",
+        "Musique"
+      ],
+      "autre_langue": [
+        "Anglais de base"
+      ]
+    },
+    "regles": [
+      "Une discipline choisie en OS ne peut pas être également choisie en DF.",
+      "Il n’est pas possible de choisir deux fois la même langue (OS ou DF).",
+      "Si l’anglais n’est choisi ni en OS ni en DF, un cours d’anglais de base peut être proposé, sans garantie de disponibilité.",
+      "L’OS Physique et application des mathématiques implique le choix niveau avancé en mathématiques.",
+      "OS Arts visuels ou OS Musique entraîne automatiquement l’inscription en DF dans la même discipline."
+    ],
+    "musique_engagements": [
+      "Continuer un instrument déjà pratiqué pendant deux ans",
+      "ou commencer un instrument et trouver un enseignant pour la rentrée",
+      "et s’inscrire au chœur ou à un cours de musique d’ensemble"
+    ]
+  },
+  "idee_pedagogique_pour_jeu": [
+    "Faire trier des cartes ou fragments entre Collège, ECG, CFP Commerce et SeFoP",
+    "Construire une énigme où il faut décider entre choix A, choix B et choix préférentiel",
+    "Créer des cadenas avec les codes de filière",
+    "Faire détecter un choix impossible de langues ou d’OS/DF",
+    "Construire des messages de validation WhatsApp basés sur un code de filière correct"
+  ]
+}
