@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Jeu de piste pédagogique à Plainpalais pour préparer la saisie des filières et options."
+    />
+    <title>Mission Plainpalais 2026</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="aurora" aria-hidden="true"></div>
+    <div id="toast-stack" class="toast-stack" aria-live="polite" aria-atomic="true"></div>
+    <div class="app-shell">
+      <header class="topbar">
+        <p class="kicker">Cycle d'orientation · 11CO LS</p>
+        <h1>Mission Plainpalais 2026</h1>
+        <p class="subtitle">Reconstituez le dossier de parcours avant la clôture.</p>
+      </header>
+
+      <section id="status-panel" class="status-panel hidden" aria-live="polite"></section>
+      <main id="main-content" class="main-content" aria-live="polite"></main>
+      <section class="card map-card reveal" aria-label="Carte de repérage">
+        <h2>Carte de repérage Plainpalais</h2>
+        <p class="text-muted">Point central du rallye. Zoomez/dézoomez pour vous orienter sur la place.</p>
+        <div class="map-wrap">
+          <iframe
+            class="map-frame"
+            title="Carte OpenStreetMap de Plainpalais"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=6.1319%2C46.1913%2C6.1526%2C46.2060&amp;layer=mapnik&amp;marker=46.1988%2C6.1422"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
+        <p>
+          <a
+            class="text-link"
+            href="https://www.openstreetmap.org/?mlat=46.1988&amp;mlon=6.1422#map=16/46.1988/6.1422"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Ouvrir la carte en plein écran</a
+          >
+        </p>
+      </section>
+    </div>
+
+    <script type="module" src="assets/js/app.js"></script>
+  </body>
+</html>

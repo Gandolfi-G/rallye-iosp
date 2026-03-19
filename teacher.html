@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mode enseignant local pour suivre les codes WhatsApp et réinitialiser la partie."
+    />
+    <title>Mode enseignant · Mission Plainpalais 2026</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="app-shell">
+      <header class="topbar">
+        <p class="kicker">Mode enseignant local</p>
+        <h1>Suivi hors-ligne</h1>
+        <p class="subtitle">Aucun backend · Données stockées dans le navigateur.</p>
+      </header>
+
+      <main class="main-content" id="teacher-content">
+        <section class="card">
+          <h2>Protocoles WhatsApp</h2>
+          <p>
+            Les équipes envoient à l'enseignant soit le code affiché à la fin d'étape, soit une capture
+            d'écran quand demandé.
+          </p>
+          <ol>
+            <li>Réception du code ou de la capture sur WhatsApp.</li>
+            <li>Vérification du numéro d'étape et du nom d'équipe.</li>
+            <li>Relance uniquement si un code attendu manque.</li>
+          </ol>
+        </section>
+
+        <section class="card">
+          <h2>Codes balises terrain (ALPHA -> OMEGA)</h2>
+          <p>Ces codes sont ceux marqués physiquement sur les points du parcours.</p>
+          <div id="teacher-beacon-codes"></div>
+        </section>
+
+        <section class="card">
+          <h2>Énigmes, réponses et codes WhatsApp</h2>
+          <div id="teacher-step-list"></div>
+        </section>
+
+        <section class="card">
+          <h2>État local de cet appareil</h2>
+          <p id="teacher-summary"></p>
+          <div class="button-row">
+            <button id="refresh-state" class="btn-secondary" type="button">Actualiser</button>
+            <button id="reset-state" class="btn-danger" type="button">Réinitialiser la partie</button>
+          </div>
+          <pre id="teacher-json" class="json-box" aria-label="Données locales"></pre>
+        </section>
+
+        <section class="teacher-footer">
+          <a href="index.html" class="text-link">Retour au jeu élève</a>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="assets/js/teacher.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+Utilise ces deux fichiers comme référence principale :
+- @docs/brief-pedagogique.md
+- @docs/regles-orientation.json
+
+Consigne :
+Crée un site mobile-first 100% statique, hébergeable sur GitHub Pages, pour un jeu de piste de 30 minutes à Plainpalais.
+Le jeu doit être ludique, narratif, et cohérent avec les règles pédagogiques de ces fichiers.
+Ne fais pas un simple quiz scolaire.
+Utilise la logique choix A / choix B / choix préférentiel, les filières Collège / ECG / CFP Commerce / SeFoP, les codes de filière, les contraintes de langues, et quelques règles OS / DF pour générer 5 à 6 énigmes de terrain plausibles.
+Prévois un fonctionnement par groupes avec stockage local et messages WhatsApp comme validation enseignant.
