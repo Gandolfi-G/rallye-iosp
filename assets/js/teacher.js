@@ -13,23 +13,19 @@ function formatMultiline(value) {
   return escapeHtml(value || "").replaceAll("\n", "<br>");
 }
 
-function extractBeaconName(step) {
-  const text = `${step.terrainInstruction || ""}\n${step.onSiteClue || ""}`;
-  const match = text.match(/balise\s+([A-Z]+)/i);
-  return match ? match[1].toUpperCase() : step.id.toUpperCase();
+function getGreekName(step) {
+  return String(step.greekLetter || step.id || "-").toUpperCase();
 }
 
-function extractBeaconCode(step) {
-  const value = String(step.answer || "");
-  const match = value.match(/([A-Z0-9]{2})$/i);
-  return match ? match[1].toUpperCase() : "-";
+function getGreekCode(step) {
+  return String(step.greekPdfCode || "-").toUpperCase();
 }
 
 function renderBeaconCodes() {
   const rows = GAME_STEPS.map((step) => {
-    const beaconName = extractBeaconName(step);
-    const beaconCode = extractBeaconCode(step);
-    return `<li><strong>${escapeHtml(beaconName)}</strong> : <code>${escapeHtml(beaconCode)}</code></li>`;
+    const greekName = getGreekName(step);
+    const greekCode = getGreekCode(step);
+    return `<li><strong>${escapeHtml(greekName)}</strong> : <code>${escapeHtml(greekCode)}</code></li>`;
   }).join("");
 
   beaconCodesNode.innerHTML = `<ol class="step-list">${rows}</ol>`;
@@ -95,7 +91,8 @@ function renderStepMatrix() {
     return `
       <li>
         <strong>${index + 1}. ${escapeHtml(step.title)}</strong><br>
-        <span class="text-muted">${escapeHtml(step.id)} · ${escapeHtml(step.location)}</span><br>
+        <span class="text-muted">${escapeHtml(step.id)} · PDF ${escapeHtml(getGreekName(step))}</span><br>
+        <strong>Code PDF (verso):</strong> <code>${escapeHtml(getGreekCode(step))}</code><br>
         <strong>Énigme:</strong><br>
         ${formatMultiline(step.puzzleQuestion)}<br>
         <strong>Réponse attendue (élève):</strong> <code>${escapeHtml(step.answer)}</code><br>
@@ -104,7 +101,6 @@ function renderStepMatrix() {
         ${rankCorrection}
         ${omegaCorrection}
         ${gammaCorrection}
-        Balise à poser: ${escapeHtml(step.onSiteClue || "-")}<br>
         <strong>Code WhatsApp à donner:</strong> <code>${escapeHtml(step.whatsappCode)}</code><br>
         Validation: ${validationText}
       </li>

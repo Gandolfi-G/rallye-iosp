@@ -24,6 +24,10 @@ function formatProfileLabel(key) {
   return labels[key] || key;
 }
 
+function getPdfTargetLabel(step) {
+  return step?.greekLetter ? `PDF ${step.greekLetter}` : "PDF de l'étape";
+}
+
 export function renderStatusPanel(state, mountNode) {
   if (!state.teamName) {
     mountNode.classList.add("hidden");
@@ -84,7 +88,8 @@ export function renderMissionScreen(mountNode, state) {
       <p>Objectif: récupérer 6 fragments et envoyer chaque validation au format demandé.</p>
       <p><strong>Parcours attribué:</strong> ${escapeHtml(routeLabel)} (ordre différent selon l'équipe)</p>
       <ol class="meta-list">
-        <li>Lisez la consigne terrain et trouvez la balise physique demandée.</li>
+        <li>Résolvez l'énigme de l'étape pour déverrouiller la phase finale.</li>
+        <li>Trouvez le PDF grec demandé (recto symbole, verso code).</li>
         <li>Saisissez la réponse pour déverrouiller l'étape suivante.</li>
         <li>Envoyez le code WhatsApp affiché (ou une capture si demandé).</li>
       </ol>
@@ -137,7 +142,7 @@ export function renderStepScreen(mountNode, state, step, runtime, hasNextStep) {
         <p>${escapeHtml(step.precheckPrompt || "Placez les filières dans le bon ordre.")}</p>
         ${
           precheckPassed
-            ? `<p class="text-muted"><strong>Tri validé.</strong> Passez à la phase 2: cherchez la balise et saisissez son code.</p>`
+            ? `<p class="text-muted"><strong>Tri validé.</strong> Passez à la phase 2: saisissez le code du ${escapeHtml(getPdfTargetLabel(step))}.</p>`
             : `
           <form id="precheck-form">
             <div class="sort-grid">
@@ -189,7 +194,7 @@ export function renderStepScreen(mountNode, state, step, runtime, hasNextStep) {
         </div>
         ${
           precheckPassed
-            ? `<p class="text-muted"><strong>Tableau validé.</strong> Passez à la phase 2: cherchez la balise et saisissez son code.</p>`
+            ? `<p class="text-muted"><strong>Tableau validé.</strong> Passez à la phase 2: saisissez le code du ${escapeHtml(getPdfTargetLabel(step))}.</p>`
             : `
           <form id="precheck-form">
             <div class="sort-grid">
@@ -225,7 +230,7 @@ export function renderStepScreen(mountNode, state, step, runtime, hasNextStep) {
         <p>${escapeHtml(step.precheckPrompt || "Classez les propositions.")}</p>
         ${
           precheckPassed
-            ? `<p class="text-muted"><strong>Classement validé.</strong> Passez à la phase 2: cherchez la balise et saisissez son code.</p>`
+            ? `<p class="text-muted"><strong>Classement validé.</strong> Passez à la phase 2: saisissez le code du ${escapeHtml(getPdfTargetLabel(step))}.</p>`
             : `
           <form id="precheck-form">
             <div class="sort-grid">
@@ -266,7 +271,7 @@ export function renderStepScreen(mountNode, state, step, runtime, hasNextStep) {
         <p>${escapeHtml(step.precheckPrompt || "Calculez puis validez le total.")}</p>
         ${
           precheckPassed
-            ? `<p class="text-muted"><strong>Total validé.</strong> Passez à la phase 2: cherchez la balise et saisissez son code.</p>`
+            ? `<p class="text-muted"><strong>Total validé.</strong> Passez à la phase 2: saisissez le code du ${escapeHtml(getPdfTargetLabel(step))}.</p>`
             : `
           <form id="precheck-form">
             <div class="sort-grid">
@@ -290,7 +295,7 @@ export function renderStepScreen(mountNode, state, step, runtime, hasNextStep) {
         <p>${escapeHtml(step.precheckPrompt || "Validez la décision finale.")}</p>
         ${
           precheckPassed
-            ? `<p class="text-muted"><strong>Décision validée.</strong> Passez à la phase 2: cherchez la balise et saisissez son code.</p>`
+            ? `<p class="text-muted"><strong>Décision validée.</strong> Passez à la phase 2: saisissez le code du ${escapeHtml(getPdfTargetLabel(step))}.</p>`
             : `
           <form id="precheck-form">
             <div class="sort-grid">
@@ -321,19 +326,8 @@ export function renderStepScreen(mountNode, state, step, runtime, hasNextStep) {
     `
         : "";
 
-  const answerLabel =
-    step.id === "pp-01"
-      ? "Code balise ALPHA"
-      : step.id === "pp-02"
-        ? "Code balise BETA"
-        : step.id === "pp-03"
-          ? "Code balise GAMMA"
-        : step.id === "pp-05"
-          ? "Code balise EPSILON"
-          : step.id === "pp-06"
-            ? "Code balise OMEGA"
-            : "Votre réponse";
-  const answerPlaceholder = step.id === "pp-01" || step.id === "pp-02" || step.id === "pp-03" || step.id === "pp-05" || step.id === "pp-06" ? "Ex: Z9" : "";
+  const answerLabel = step.id === "pp-04" ? "Réponse (lettre + code)" : `Code du ${getPdfTargetLabel(step)}`;
+  const answerPlaceholder = step.id === "pp-04" ? "Ex: CT1" : "Ex: Z9";
   const answerSection = isSolved
     ? ""
     : precheckPassed
@@ -360,11 +354,7 @@ export function renderStepScreen(mountNode, state, step, runtime, hasNextStep) {
     <section class="card reveal">
       <span class="badge">${escapeHtml(step.id.toUpperCase())}</span>
       <h2>${escapeHtml(step.title)}</h2>
-      <p><strong>Lieu/repère:</strong> ${escapeHtml(step.location)}</p>
       <p><strong>Micro-narration:</strong> ${escapeHtml(step.narration)}</p>
-      <p><strong>Consigne terrain:</strong> ${escapeHtml(step.terrainInstruction)}</p>
-      <p><strong>Indice sur place:</strong> ${escapeHtml(step.onSiteClue || "Cherchez la balise de l'étape.")}</p>
-      <p><strong>Fallback terrain:</strong> ${escapeHtml(step.fallbackNote)}</p>
       <hr />
       <p><strong>Énigme:</strong></p>
       <p>${escapeHtml(step.puzzleQuestion).replaceAll("\n", "<br>")}</p>

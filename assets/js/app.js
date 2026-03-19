@@ -298,7 +298,7 @@ async function handleAnswerSubmit(formEvent) {
   }
 
   if (!isStepPrecheckPassed(currentStep)) {
-    runtime.feedback = "Validez d'abord la phase 1 avant de saisir le code balise.";
+    runtime.feedback = "Validez d'abord la phase 1 avant de saisir le code du PDF.";
     runtime.feedbackType = "error";
     showToast("Validez d'abord la phase 1.", "error");
     const previousScrollY = window.scrollY;
@@ -328,7 +328,7 @@ async function handleAnswerSubmit(formEvent) {
 }
 
 async function copyFinalSummary() {
-  // Copie rapide pour envoi WhatsApp ; fallback capture écran si refus navigateur.
+  // Copie rapide pour envoi WhatsApp ; sinon capture écran si refus navigateur.
   const summary = buildSummaryText(state);
   try {
     await navigator.clipboard.writeText(summary);

@@ -1,0 +1,61 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [9 0 R 10 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Symbol >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+7 0 obj
+<< /Length 111 >>
+stream
+0 g
+BT /FTitle 28 Tf 1 0 0 1 236.7 760.0 Tm (EPSILON) Tj ET
+BT /FGreek 530 Tf 1 0 0 1 190.0 200.0 Tm (e) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Length 213 >>
+stream
+0 g
+BT /FTitle 28 Tf 1 0 0 1 193.3 760.0 Tm (CODE EPSILON) Tj ET
+BT /FCode 250 Tf 1 0 0 1 142.5 300.0 Tm (L8) Tj ET
+BT /FBody 16 Tf 1 0 0 1 101.5 120.0 Tm (Etape EPSILON : saisir ce code dans l'application) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /FGreek 3 0 R /FTitle 4 0 R /FCode 5 0 R /FBody 6 0 R >> >> /Contents 7 0 R >>
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /FGreek 3 0 R /FTitle 4 0 R /FCode 5 0 R /FBody 6 0 R >> >> /Contents 8 0 R >>
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000128 00000 n 
+0000000195 00000 n 
+0000000270 00000 n 
+0000000345 00000 n 
+0000000415 00000 n 
+0000000576 00000 n 
+0000000839 00000 n 
+0000001009 00000 n 
+trailer
+<< /Size 11 /Root 1 0 R >>
+startxref
+1180
+%%EOF

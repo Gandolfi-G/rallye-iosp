@@ -6,8 +6,8 @@ export const GAME_CONFIG = {
   narrative:
     "Le dossier de préparation des parcours 2026 a été fragmenté. Votre équipe doit récupérer 6 fragments et vérifier qu'ils forment une saisie cohérente avant la clôture.",
   missionRules: [
-    "Déplacez-vous uniquement dans des zones publiques et sûres de Plainpalais.",
-    "Chaque énigme exige un code de balise terrain affiché sur place.",
+    "Retrouvez 6 PDFs balisés par lettre grecque (ALPHA à OMEGA).",
+    "Chaque PDF est recto-verso: recto = signe grec géant, verso = code à saisir.",
     "Une seule réponse validée débloque l'étape suivante.",
     "Envoyez le code WhatsApp affiché ou la capture demandée à l'enseignant.",
     "Aucune donnée n'est envoyée sur internet : tout reste local sur l'appareil."
@@ -51,17 +51,18 @@ export const STEP_ROUTES = [
 export const GAME_STEPS = [
   {
     id: "pp-01",
+    greekLetter: "ALPHA",
+    greekPdfCode: "K2",
+    greekGlyph: "a",
     title: "Fragment Alpha - Les Quatre Portes",
-    location: "Grande esplanade de Plainpalais (zone ouverte avec bancs, arbres, marquages)",
+    location: "Place de Plainpalais",
     narration:
       "Le premier fragment est verrouillé : il faut classer correctement les 4 voies d'orientation.",
-    terrainInstruction:
-      "Étape en 2 phases : 1) validez d'abord le tri des filières dans l'application ; 2) trouvez ensuite la balise ALPHA sur place et relevez son code.",
     precheckType: "sort-filieres",
     precheckPrompt:
       "Placez les 4 filières au bon endroit pour les règles A, B, C, D, puis validez le tri.",
     precheckSuccessMessage:
-      "Tri validé. Vous pouvez maintenant chercher la balise ALPHA et saisir son code.",
+      "Tri validé. Passez à la phase 2: trouvez le PDF ALPHA et saisissez son code verso.",
     precheckErrorMessage: "Tri incorrect. Vérifiez vos placements A/B/C/D et retentez.",
     sortItems: [
       { slot: "A", rule: "Aucun choix de langue à faire" },
@@ -81,35 +82,32 @@ export const GAME_STEPS = [
       C: "CFP_COMMERCE",
       D: "ECG"
     },
-    onSiteClue:
-      "Balise ALPHA: carte plastifiée format A6 fixée sous l'assise du banc principal (face intérieure).",
     puzzleQuestion:
-      "Phase 1: utilisez la zone de tri ci-dessous pour placer correctement les filières A, B, C, D.\nPhase 2: une fois le tri validé, trouvez la balise ALPHA et saisissez uniquement son code.",
+      "Phase 1: utilisez la zone de tri ci-dessous pour placer correctement les filières A, B, C, D.\nPhase 2: une fois le tri validé, trouvez le PDF ALPHA (recto signe grec) et saisissez le code du verso.",
     answer: "K2",
     acceptedVariants: ["k-2", "k 2"],
-    hint: "Pour le tri: A=SeFoP, B=Collège, C=CFP Commerce, D=ECG. Ensuite, il faut uniquement le code balise ALPHA.",
+    hint: "Pour le tri: A=SeFoP, B=Collège, C=CFP Commerce, D=ECG. Puis saisissez le code verso du PDF ALPHA.",
     pedagogicalNote:
       "On choisit d'abord une filière (Collège, ECG, CFP Commerce, SeFoP), pas un établissement précis.",
     whatsappCode: "PP26-ALPHA-SCCE",
     validationMode: "code",
     reward: "Fragment Alpha récupéré : la carte des filières est réassemblée.",
-    nextStep: "pp-02",
-    fallbackNote:
-      "Si la zone choisie est trop dense, déplacez-vous vers une autre zone ouverte de Plainpalais avec les mêmes repères urbains."
+    nextStep: "pp-02"
   },
   {
     id: "pp-02",
+    greekLetter: "BETA",
+    greekPdfCode: "M4",
+    greekGlyph: "b",
     title: "Fragment Beta - Dossier ECG",
-    location: "Bordure arborée ou allée latérale de la place",
+    location: "Place de Plainpalais",
     narration:
       "Le second fragment vous confie le dossier d'une élève de 11e : à vous de vérifier les accès aux 7 pôles ECG.",
-    terrainInstruction:
-      "Étape en 2 phases : 1) cochez OUI/NON pour les 7 pôles ECG à partir des notes ; 2) trouvez la balise BETA et relevez son code.",
     precheckType: "ecg-poles",
     precheckPrompt:
       "Analysez les notes de l'élève et indiquez OUI ou NON pour chaque pôle ECG (accès en 2e année). Les critères ne sont pas affichés: utilisez le PDF de règles fourni par l'enseignant.",
     precheckSuccessMessage:
-      "Analyse validée. Vous pouvez maintenant chercher la balise BETA et saisir son code.",
+      "Analyse validée. Passez à la phase 2: trouvez le PDF BETA et saisissez son code verso.",
     precheckErrorMessage:
       "Tableau incorrect. Revérifiez les seuils de chaque pôle ECG puis corrigez.",
     studentProfile: {
@@ -171,91 +169,82 @@ export const GAME_STEPS = [
       pedagogie: "NO",
       travail_social: "NO"
     },
-    onSiteClue:
-      "Balise BETA: carte plastifiée fixée à hauteur des yeux sur un potelet en bordure arborée (côté intérieur de la place).",
     puzzleQuestion:
-      "Phase 1: complétez le tableau OUI/NON des 7 pôles ECG à partir des notes.\nImportant: les critères d'admission ne sont pas affichés ici. Vous devez les retrouver dans le PDF de référence distribué par l'enseignant.\nPhase 2: quand le tableau est validé, trouvez la balise BETA et saisissez uniquement son code.",
+      "Phase 1: complétez le tableau OUI/NON des 7 pôles ECG à partir des notes.\nImportant: les critères d'admission ne sont pas affichés ici. Vous devez les retrouver dans le PDF de référence distribué par l'enseignant.\nPhase 2: quand le tableau est validé, trouvez le PDF BETA et saisissez le code du verso.",
     answer: "M4",
     acceptedVariants: ["m-4", "m 4"],
-    hint: "Cherchez les critères exacts dans le PDF. Ne mettez pas tout à OUI. Ensuite, il faut uniquement le code balise BETA.",
+    hint: "Cherchez les critères exacts dans le PDF de règles, puis saisissez le code verso du PDF BETA.",
     pedagogicalNote:
       "Les acces ECG dependent de seuils differents selon le pole ; il faut verifier les notes critere par critere.",
     whatsappCode: "PP26-BETA-ECG7",
     validationMode: "code",
     reward: "Fragment Beta recupere : le dossier ECG est valide.",
-    nextStep: "pp-03",
-    fallbackNote:
-      "Si la bordure arborée n'est pas praticable, utilisez un autre alignement visuel stable (bord de place ou rangée de bancs)."
+    nextStep: "pp-03"
   },
   {
     id: "pp-03",
+    greekLetter: "GAMMA",
+    greekPdfCode: "Q7",
+    greekGlyph: "g",
     title: "Fragment Gamma - Coffre des Codes",
-    location: "Zone de marquages au sol (lignes de sport, quadrillage ou bandes urbaines)",
+    location: "Place de Plainpalais",
     narration:
       "Un coffre chiffré demande de manipuler des codes de filière réels.",
-    terrainInstruction:
-      "Étape en 2 phases : 1) calculez d'abord le total demandé ; 2) trouvez ensuite la balise GAMMA et relevez son code.",
     precheckType: "gamma-total",
     precheckPrompt:
-      "Calculez la somme demandée puis validez votre total avant de chercher la balise.",
+      "Calculez la somme demandée puis validez votre total.",
     precheckSuccessMessage:
-      "Total validé. Vous pouvez maintenant chercher la balise GAMMA et saisir son code.",
+      "Total validé. Passez à la phase 2: trouvez le PDF GAMMA et saisissez son code verso.",
     precheckErrorMessage:
       "Total incorrect. Reprenez le calcul des deux derniers chiffres puis corrigez.",
     expectedTotal: "145",
-    onSiteClue:
-      "Balise GAMMA: carte plastifiée collée sous une rambarde basse ou au dos d'un panneau proche des marquages.",
     puzzleQuestion:
-      "Phase 1: utilisez les codes de filière et calculez :\n- Maturité gymnasiale : 0287\n- ECG Pédagogie : 2906\n- SeFoP : 2152\nPrenez les deux derniers chiffres de chaque code et additionnez-les, puis validez le total.\nPhase 2: trouvez la balise GAMMA et saisissez uniquement son code.",
+      "Phase 1: utilisez les codes de filière et calculez :\n- Maturité gymnasiale : 0287\n- ECG Pédagogie : 2906\n- SeFoP : 2152\nPrenez les deux derniers chiffres de chaque code et additionnez-les, puis validez le total.\nPhase 2: trouvez le PDF GAMMA et saisissez le code du verso.",
     answer: "Q7",
     acceptedVariants: ["q-7", "q 7"],
-    hint: "87 + 06 + 52. Ensuite, il faut uniquement le code balise GAMMA.",
+    hint: "87 + 06 + 52. Puis saisissez le code verso du PDF GAMMA.",
     pedagogicalNote:
       "Les codes de filière servent à identifier des parcours précis ; ils peuvent être transformés en cadenas logiques.",
     whatsappCode: "PP26-GAMMA-145",
     validationMode: "screenshot",
     reward: "Fragment Gamma récupéré : le coffre numérique est ouvert.",
-    nextStep: "pp-04",
-    fallbackNote:
-      "Si aucun marquage n'est disponible, faites le calcul depuis un banc ; le repère visuel sert surtout à rythmer l'étape."
+    nextStep: "pp-04"
   },
   {
     id: "pp-04",
+    greekLetter: "DELTA",
+    greekPdfCode: "T1",
+    greekGlyph: "d",
     title: "Fragment Delta - L'Intrus Langues",
-    location: "Proximité d'un panneau urbain fixe ou d'un mobilier signalétique",
+    location: "Place de Plainpalais",
     narration:
       "Un dossier contient une proposition linguistique impossible. À vous de l'isoler.",
-    terrainInstruction:
-      "Placez-vous près d'un panneau stable (signal urbain, totem, indication fixe). Repérez la balise DELTA et notez son code de 2 caractères.",
-    onSiteClue:
-      "Balise DELTA: carte plastifiée derrière un panneau urbain fixe, attachée avec collier réutilisable.",
     puzzleQuestion:
-      "Une seule proposition est impossible selon les règles :\nA) CFC Commerce : anglais + allemand\nB) ECG projet primaire : anglais + allemand\nC) SeFoP : anglais + italien\nD) ECG autre projet : allemand + italien\nRéponse attendue = lettre + code balise DELTA (sans espace).",
+      "Une seule proposition est impossible selon les règles :\nA) CFC Commerce : anglais + allemand\nB) ECG projet primaire : anglais + allemand\nC) SeFoP : anglais + italien\nD) ECG autre projet : allemand + italien\nRéponse attendue = lettre + code du PDF DELTA (sans espace).",
     answer: "CT1",
     acceptedVariants: ["c-t1", "option c t1", "c t 1"],
-    hint: "SeFoP ne demande aucun choix de langue. Sans code DELTA, la réponse n'est pas acceptée.",
+    hint: "SeFoP ne demande aucun choix de langue. Prenez le code au verso du PDF DELTA et combinez-le avec la lettre correcte.",
     pedagogicalNote:
       "Les contraintes de langues dépendent fortement de la filière ; SeFoP est le cas le plus simple (aucun choix).",
     whatsappCode: "PP26-DELTA-C",
     validationMode: "code",
     reward: "Fragment Delta récupéré : les incompatibilités de langues sont neutralisées.",
-    nextStep: "pp-05",
-    fallbackNote:
-      "Si aucun panneau n'est accessible, utilisez un autre élément fixe identifiable (borne, plan urbain, potelet signalétique)."
+    nextStep: "pp-05"
   },
   {
     id: "pp-05",
+    greekLetter: "EPSILON",
+    greekPdfCode: "L8",
+    greekGlyph: "e",
     title: "Fragment Epsilon - Tri OS/DF",
-    location: "Point central visible (statue, centre de place, repère monumental)",
+    location: "Place de Plainpalais",
     narration:
       "Le cinquième fragment impose un tri de cohérence sur les choix OS/DF du Collège.",
-    terrainInstruction:
-      "Étape en 2 phases : 1) classez correctement les trois propositions ; 2) trouvez la balise EPSILON et relevez son code.",
     precheckType: "rank-order",
     precheckPrompt:
       "Attribuez un rang (1, 2, 3) à chaque proposition pour aller du plus cohérent au moins cohérent.",
     precheckSuccessMessage:
-      "Classement validé. Vous pouvez maintenant chercher la balise EPSILON et saisir son code.",
+      "Classement validé. Passez à la phase 2: trouvez le PDF EPSILON et saisissez son code verso.",
     precheckErrorMessage:
       "Classement incorrect. Reprenez les règles de cohérence OS/DF puis corrigez les rangs.",
     rankItems: [
@@ -268,55 +257,48 @@ export const GAME_STEPS = [
       C: "2",
       B: "3"
     },
-    onSiteClue:
-      "Balise EPSILON: carte plastifiée sous la tablette d'un banc orienté vers le centre de la place.",
     puzzleQuestion:
-      "Phase 1: classez les 3 propositions du plus cohérent au moins cohérent dans la zone de classement.\nPhase 2: une fois le classement validé, trouvez la balise EPSILON et saisissez uniquement son code.",
+      "Phase 1: classez les 3 propositions du plus cohérent au moins cohérent dans la zone de classement.\nPhase 2: une fois le classement validé, trouvez le PDF EPSILON et saisissez le code du verso.",
     answer: "L8",
     acceptedVariants: ["l-8", "l 8"],
-    hint: "A respecte une regle explicite. B viole une incompatibilite directe. C est partiellement coherent mais incomplet. Ensuite, il faut uniquement le code balise EPSILON.",
+    hint: "A respecte une règle explicite. B viole une incompatibilité directe. C est partiellement cohérent mais incomplet. Puis saisissez le code verso du PDF EPSILON.",
     pedagogicalNote:
       "Au Collège, OS et DF ne peuvent pas dupliquer la même discipline ; certaines OS imposent des conditions supplémentaires.",
     whatsappCode: "PP26-EPSILON-ACB",
     validationMode: "screenshot",
     reward: "Fragment Epsilon récupéré : la matrice OS/DF est stabilisée.",
-    nextStep: "pp-06",
-    fallbackNote:
-      "Si le repère central est inaccessible, choisissez un point ouvert bien identifiable par toute l'équipe."
+    nextStep: "pp-06"
   },
   {
     id: "pp-06",
-    title: "Fragment Omega - Décision Finale",
-    location: "Zone calme en bord de place pour la synthèse",
+    greekLetter: "OMEGA",
+    greekPdfCode: "R3",
+    greekGlyph: "w",
+    title: "Fragment Omega - Décision d'orientation",
+    location: "Place de Plainpalais",
     narration:
-      "Dernier contrôle avant transmission du dossier final 2026.",
-    terrainInstruction:
-      "Étape en 2 phases : 1) validez d'abord la décision finale ; 2) trouvez ensuite la balise OMEGA et relevez son code.",
+      "Un contrôle de décision d'orientation à résoudre à n'importe quel moment du parcours.",
     precheckType: "omega-decision",
     precheckPrompt:
-      "Choisissez la décision finale (A ou B) et le type d'inscription (F ou E), puis validez.",
+      "Phase 1: appliquez la règle de décision d'orientation, puis choisissez (1) la décision A/B et (2) le type d'inscription F/E.",
     precheckSuccessMessage:
-      "Décision validée. Vous pouvez maintenant chercher la balise OMEGA et saisir son code.",
+      "Décision validée. Phase 2 débloquée: récupérez le PDF OMEGA et saisissez le code inscrit au verso.",
     precheckErrorMessage:
-      "Décision incorrecte. Reprenez les règles du cas final et corrigez vos choix.",
+      "Décision incorrecte. Vérifiez la logique préférentielle et la règle d'inscription (filière vs établissement), puis corrigez.",
     expectedDecision: {
       finalDecision: "A",
       inscriptionType: "F"
     },
-    onSiteClue:
-      "Balise OMEGA: carte plastifiée à l'arrière d'une borne fixe en zone calme (hors flux principal).",
     puzzleQuestion:
-      "Cas final :\n- Choix A : maturité bilingue anglais\n- Choix B : maturité gymnasiale\n- Admissible au bilingue en T2 et en fin d'année\nPhase 1: validez d'abord la decision finale et le type d'inscription.\nPhase 2: trouvez la balise OMEGA et saisissez uniquement son code.",
+      "Cas OMEGA :\n- Choix A : maturité bilingue anglais\n- Choix B : maturité gymnasiale\n- L'élève est admissible au bilingue en T2 ET en fin d'année\n\nCe qu'il faut faire (phase 1) :\n1) Déterminez quelle décision devient définitive (A ou B).\n2) Choisissez le type d'inscription :\n   - F = inscription par filière\n   - E = inscription par établissement\n3) Validez ces deux choix dans le formulaire.\n\nPhase 2 : trouvez le PDF OMEGA (recto = signe grec), puis saisissez le code du verso.",
     answer: "R3",
     acceptedVariants: ["r-3", "r 3"],
-    hint: "Le bilingue admissible en T2 et fin d'année devient définitif et préférentiel. Ensuite, il faut uniquement le code balise OMEGA.",
+    hint: "Si le bilingue est admissible en T2 et en fin d'année, il reste le choix final. L'inscription se fait par filière (F). Ensuite, saisissez le code du PDF OMEGA.",
     pedagogicalNote:
       "La saisie valide un parcours de filière ; le mécanisme préférentiel verrouille la décision quand les conditions sont remplies.",
     whatsappCode: "PP26-OMEGA-AF",
     validationMode: "code",
     reward: "Dossier reconstitué : prêt à être montré à l'enseignant.",
-    nextStep: null,
-    fallbackNote:
-      "S'il y a trop de bruit, déplacez-vous simplement de quelques mètres vers une zone plus calme pour conclure."
+    nextStep: null
   }
 ];

@@ -6,7 +6,7 @@
 - Support : 1 smartphone par groupe.
 - Connexion : non requise pour le fonctionnement du jeu.
 
-## Protocole terrain recommandé
+## Protocole recommandé
 1. Lancer `index.html` sur le téléphone du groupe.
 2. Chaque groupe saisit son nom d'équipe.
 3. Les équipes avancent étape par étape (déblocage progressif).
@@ -14,6 +14,12 @@
    - soit le code WhatsApp affiché,
    - soit une capture d'écran quand demandé.
 5. En fin de partie, le groupe montre ou envoie l'écran récapitulatif final.
+
+## Préparation des PDFs grecs
+- Imprimer et placer 6 PDFs recto-verso : ALPHA, BETA, GAMMA, DELTA, EPSILON, OMEGA.
+- Recto : grand signe grec.
+- Verso : code à saisir dans l'étape correspondante.
+- Fichiers fournis dans `docs/pdfs-plainpalais/`.
 
 ## Vérification rapide côté enseignant
 Ouvrir `teacher.html` sur l'appareil utilisé :
@@ -38,8 +44,7 @@ Ouvrir `teacher.html` sur l'appareil utilisé :
 
 Cela supprime uniquement les données locales de l'appareil courant.
 
-## Sécurité / terrain
+## Sécurité
 - Rester dans des zones piétonnes sûres.
 - Éviter les traversées inutiles.
-- Utiliser les fallback des étapes en cas de zone trop dense.
 - Interdire les courses ; privilégier la précision de raisonnement.
